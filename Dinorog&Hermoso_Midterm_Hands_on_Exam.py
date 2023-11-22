@@ -1,16 +1,14 @@
-def get_student_input(prompt):
+import random
+
+
+def get_student_answer(prompt):
     while True:
         try:
-            student_input = int(input(prompt))
-            if 1 <= student_input <= 99:
-                return student_input
-            else:
-                print("Invalid Input."
-                      "\n<The correct answer is between [1-99]>")
-
+            student_answer = float(input(prompt))
+            return student_answer
         except ValueError:
             print("Error 404"
-                  "\n<Please enter valid integers>")
+                  "\n<Please enter a number>")
 
 
 def get_new_answer(prompt):
@@ -20,41 +18,61 @@ def get_new_answer(prompt):
             return new_answer
         else:
             print("Invalid Input."
-                  "\nPlease enter 'yes' or 'no'")
+                  "\n<Please enter 'yes' or 'no'>")
 
 
 while True:
-    print("\nGRADE SCHOOL STUDENT!"
-          "\nSEAT WORK: BASIC OPERATIONS")
-    print("Answer the following questions:")
+    print("WELCOME GRADE SCHOOL STUDENT!"
+          "\nMATH PRACTICE PROGRAM: CALCULATE BASIC OPERATIONS")
+    print("\nAnswer the following questions:")
 
-    question1 = get_student_input("\n1.) What is 53 + 5? ")
-    if question1 == 58:
-        print("Your answer is CORRECT!")
+    num1 = random.randint(1, 99)
+    num2 = random.randint(1, 99)
+    addition = eval(f"{num1} + {num2}")
+    print(f"Question 1: Addition"
+          f"\n{num1} + {num2}?")
+    first_question = get_student_answer("Answer: ")
 
-    elif question1 != 58:
-        print("Your answer is INCORRECT!")
+    if first_question == addition:
+        print("Your answer is CORRECT")
+    else:
+        print("Your answer is WRONG")
 
-    question2 = get_student_input("\n2.) What is 52 - 10? ")
-    if question2 == 42:
-        print("Your answer is CORRECT!")
+    num1 = random.randint(1, 99)
+    num2 = random.randint(1, 99)
+    subtraction = eval(f"{num1} - {num2}")
+    print(f"\nQuestion 2: Subtraction"
+          f"\n{num1} - {num2}?")
+    second_question = get_student_answer("Answer: ")
 
-    elif question2 != 42:
-        print("Your answer is INCORRECT!")
+    if second_question == subtraction:
+        print("Your answer is CORRECT")
+    else:
+        print("Your answer is WRONG")
 
-    question3 = get_student_input("\n3.) What is 3 x 10? ")
-    if question3 == 30:
-        print("Your answer is CORRECT!")
+    num1 = random.randint(1, 99)
+    num2 = random.randint(1, 99)
+    multiplication = eval(f"{num1} * {num2}")
+    print(f"\nQuestion 3: Multiplication"
+          f"\n{num1} * {num2}?")
+    third_question = get_student_answer("Answer: ")
 
-    elif question3 != 30:
-        print("Your answer is INCORRECT!")
+    if third_question == multiplication:
+        print("Your answer is CORRECT")
+    else:
+        print("Your answer is WRONG")
 
-    question4 = get_student_input("\n4.) what is 15 / 5? ")
-    if question4 == 3:
-        print("Your answer is CORRECT!")
+    num1 = random.randint(1, 99)
+    num2 = random.randint(1, 99)
+    division = round(num1 / num2, 2)
+    print(f"\nQuestion 4: Division"
+          f"\n{num1} / {num2}?")
+    fourth_question = get_student_answer("Answer: ")
 
-    elif question4 != 3:
-        print("Your answer is INCORRECT!")
+    if fourth_question == division:
+        print("Your answer is CORRECT")
+    else:
+        print("Your answer is WRONG")
 
     another_student = get_new_answer("\nDo you want to answer again [yes | no]: ")
     if another_student != 'yes':
